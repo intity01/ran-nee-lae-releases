@@ -109,13 +109,35 @@ code { font-size: .85em; word-break: break-all; }
 footer { margin-top: 56px; border-top: 1px dashed var(--line); padding-block: 20px 36px; font-size: .9rem;
 	color: var(--ink-soft); display: flex; flex-wrap: wrap; gap: 6px 18px; }
 @media (prefers-reduced-motion: reduce) { .buy { transition: none; } }
+.lang { margin: 18px 0 -22px; text-align: right; font-size: .95rem; }
+.langnote { margin: 0; max-width: 40em; padding: 10px 14px; border-radius: 8px; background: var(--paper);
+	border: 1px dashed var(--wood); font-size: .975rem; }
 </style>
+<link rel="alternate" hreflang="th" href="https://intity01.github.io/ran-nee-lae-releases/">
+<link rel="alternate" hreflang="en" href="https://intity01.github.io/ran-nee-lae-releases/en/">
+<script>
+(function () {
+	var saved = null;
+	try { saved = localStorage.getItem("lang"); } catch (_) {}
+	var langs = navigator.languages || [navigator.language || ""];
+	var thai = langs.some(function (l) { return /^th/i.test(l); });
+	if (saved === "en" || (!saved && !thai)) location.replace("en/" + location.hash);
+})();
+</script>
+<script>
+/* Remember a language picked by hand; a first visit from a non-Thai browser goes to the English page. */
+document.addEventListener("click", function (e) {
+	var a = e.target.closest && e.target.closest(".lang a");
+	if (a) { try { localStorage.setItem("lang", a.getAttribute("hreflang")); } catch (_) {} }
+});
+</script>
 </head>
 <body>
 
 <div class="awning" aria-hidden="true"></div>
 
 <main class="wrap">
+	<p class="lang"><a href="en/" hreflang="en" lang="en">English</a></p>
 	<header class="hero">
 		<div class="window"><img class="px" src="cover.png" width="1280" height="720"
 			alt="ร้านข้าวของป้าในซอยตอนพลบค่ำ มีกันสาดลายแดงขาว ศาลพระภูมิ โต๊ะ และไก่"></div>

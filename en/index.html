@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" type="image/png" href="../icon.png">
+<meta property="og:title" content="Ran Nee Lae (ร้านนี้แหละ)">
+<meta property="og:description" content="A cozy pixel Thai restaurant that stays open at the edge of your screen all day. Free on Windows.">
+<meta property="og:image" content="https://intity01.github.io/ran-nee-lae-releases/cover.png">
+<title>Ran Nee Lae</title>
+<meta name="description" content="A cozy pixel Thai restaurant that stays open at the edge of your screen all day. Free on Windows.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mali:wght@600;700&family=IBM+Plex+Sans+Thai+Looped:wght@400;600&display=swap">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0}
+img{max-width:100%}
+/* Layout: one warm column under the shop's striped awning; the cover is the shop window, the button is the till. */
+:root {
+	--ground: #f6ecda;      /* concrete in the sun */
+	--paper: #fffaf0;       /* enamel plate */
+	--ink: #3a2620;         /* outline ink, warm */
+	--ink-soft: #6e5446;
+	--awning: #de3434;      /* awning red */
+	--awning-deep: #b02430;
+	--stripe: #fffcf6;
+	--wood: #b6743e;
+	--line: #e3d2b8;
+	--gold: #eeb632;
+	--on-awning: #fffaf0;
+	--link: #b02430;
+	--display: "Mali", "Itim", "Leelawadee UI", sans-serif;
+	--body: "IBM Plex Sans Thai Looped", "Leelawadee UI", "Tahoma", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme="light"]) {
+		--ground: #2a2440; --paper: #352d50; --ink: #f6ead2; --ink-soft: #c9bcd6;
+		--awning: #f0605a; --awning-deep: #c8404a; --stripe: #f2e6d8; --wood: #e0a46a;
+		--line: #4a4068; --gold: #ffd75e; --on-awning: #2a1a1a; --link: #ffb4a8; color-scheme: dark;
+	}
+}
+:root[data-theme="dark"] {
+	--ground: #2a2440; --paper: #352d50; --ink: #f6ead2; --ink-soft: #c9bcd6;
+	--awning: #f0605a; --awning-deep: #c8404a; --stripe: #f2e6d8; --wood: #e0a46a;
+	--line: #4a4068; --gold: #ffd75e; --on-awning: #2a1a1a; --link: #ffb4a8; color-scheme: dark;
+}
+
+body { background: var(--ground); color: var(--ink); font: 400 1.0625rem/1.75 var(--body); }
+img.px { image-rendering: pixelated; display: block; width: 100%; height: auto; }
+a { color: var(--link); text-underline-offset: 3px; }
+a:focus-visible, .buy:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+
+/* the awning: red and white stripes ending in scallops, like the shop's own */
+.awning { height: 46px; position: relative;
+	background: repeating-linear-gradient(90deg, var(--awning) 0 40px, var(--stripe) 40px 80px); }
+.awning::after { content: ""; position: absolute; left: 0; right: 0; top: 100%; height: 14px;
+	background: radial-gradient(circle at 20px 0, var(--awning) 13px, transparent 14px) 0 0 / 80px 14px repeat-x,
+		radial-gradient(circle at 20px 0, var(--stripe) 13px, transparent 14px) 40px 0 / 80px 14px repeat-x; }
+
+.wrap { max-width: 880px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px));
+	padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+
+.hero { padding-block: 40px 8px; display: grid; gap: 22px; }
+.window { border: 4px solid var(--wood); border-radius: 6px; overflow: hidden; background: var(--paper); }
+.hero h1 { font: 700 clamp(2.4rem, 7vw, 3.4rem)/1.25 var(--display); margin: 0; text-wrap: balance; }
+.hero .lede { margin: 0; max-width: 34em; color: var(--ink-soft); font-size: 1.125rem; }
+.till { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 22px; }
+.buy { display: inline-grid; gap: 2px; text-decoration: none; background: var(--awning); color: var(--on-awning);
+	padding: 14px 28px 12px; border-radius: 10px; box-shadow: 0 5px 0 var(--awning-deep);
+	transition: transform .12s, box-shadow .12s; }
+:root .buy { color: var(--on-awning); }
+.buy:hover { transform: translateY(2px); box-shadow: 0 3px 0 var(--awning-deep); }
+.buy:active { transform: translateY(5px); box-shadow: 0 0 0 var(--awning-deep); }
+.buy b { font: 700 1.5rem/1.3 var(--display); }
+.buy small { font-size: .875rem; opacity: .92; }
+.alt { font-size: .95rem; color: var(--ink-soft); }
+.tag { display: inline-block; font-size: .8125rem; letter-spacing: .02em; padding: 2px 10px; border-radius: 99px;
+	border: 1px solid var(--line); color: var(--ink-soft); }
+
+section { padding-block: 44px 8px; }
+h2 { font: 700 1.6rem/1.4 var(--display); margin: 0 0 14px; text-wrap: balance; }
+.shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
+.shots figure { margin: 0; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.shots .window { border-width: 3px; }
+.shots figcaption { font-size: .95rem; color: var(--ink-soft); line-height: 1.6; }
+.wide { grid-column: 1 / -1; }
+.desk { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.desk img { display: block; width: 100%; height: auto; }
+.trailer { display: block; width: 100%; height: auto; background: #1c1624; }
+.note { margin: 14px 0 0; max-width: 42em; color: var(--ink-soft); }
+ul.menu { list-style: none; padding: 0; margin: 18px 0 0; display: grid; gap: 6px; max-width: 40em; }
+ul.menu li { display: grid; grid-template-columns: 1.4em 1fr; }
+ul.menu li::before { content: "•"; color: var(--awning); font-weight: 700; }
+
+ol.steps { list-style: none; counter-reset: s; padding: 0; margin: 0; display: grid; gap: 14px; max-width: 42em; }
+ol.steps li { counter-increment: s; display: grid; grid-template-columns: 2.4rem 1fr; gap: 12px; align-items: start; }
+ol.steps li::before { content: counter(s); font: 700 1.1rem/2.2rem var(--display); text-align: center;
+	width: 2.2rem; height: 2.2rem; border-radius: 50%; background: var(--paper); border: 2px solid var(--wood); }
+ol.steps p { margin: 0; }
+kbd { font: 600 .9em var(--body); background: var(--paper); border: 1px solid var(--line); border-bottom-width: 3px;
+	border-radius: 5px; padding: 0 6px; white-space: nowrap; }
+
+dl.faq { margin: 0; display: grid; gap: 16px; max-width: 42em; }
+dl.faq dt { font-weight: 600; }
+dl.faq dd { margin: 2px 0 0; color: var(--ink-soft); }
+code { font-size: .85em; word-break: break-all; }
+
+footer { margin-top: 56px; border-top: 1px dashed var(--line); padding-block: 20px 36px; font-size: .9rem;
+	color: var(--ink-soft); display: flex; flex-wrap: wrap; gap: 6px 18px; }
+@media (prefers-reduced-motion: reduce) { .buy { transition: none; } }
+.lang { margin: 18px 0 -22px; text-align: right; font-size: .95rem; }
+.langnote { margin: 0; max-width: 40em; padding: 10px 14px; border-radius: 8px; background: var(--paper);
+	border: 1px dashed var(--wood); font-size: .975rem; }
+</style>
+<link rel="alternate" hreflang="th" href="https://intity01.github.io/ran-nee-lae-releases/">
+<link rel="alternate" hreflang="en" href="https://intity01.github.io/ran-nee-lae-releases/en/">
+<script>
+/* Remember a language picked by hand; a first visit from a non-Thai browser goes to the English page. */
+document.addEventListener("click", function (e) {
+	var a = e.target.closest && e.target.closest(".lang a");
+	if (a) { try { localStorage.setItem("lang", a.getAttribute("hreflang")); } catch (_) {} }
+});
+</script>
+</head>
+<body>
+
+<div class="awning" aria-hidden="true"></div>
+
+<main class="wrap">
+	<p class="lang"><a href="../" hreflang="th" lang="th">ภาษาไทย</a></p>
+	<header class="hero">
+		<div class="window"><img class="px" src="../cover.png" width="1280" height="720"
+			alt="Auntie's rice shop in a Bangkok soi at dusk: a red and white awning, a spirit house, tables and a hen"></div>
+		<h1>Ran Nee Lae <span lang="th">ร้านนี้แหละ</span></h1>
+		<p class="lede">A cozy pixel Thai restaurant that sits at the edge of your screen all day. Help Auntie turn an empty
+			lot in a small soi into the rice shop the whole street loves.</p>
+		<p class="langnote"><b>The game is in Thai for now.</b> An English version is on the way, starting with the menus,
+			buttons and the first-run tour; the story follows later.</p>
+		<div class="till">
+			<a class="buy" id="download" href="https://github.com/intity01/ran-nee-lae-releases/releases/latest/download/RanNeeLae-Setup.exe">
+				<b>Download</b>
+				<small>Installer · Windows 10/11 · 30 MB · Free</small>
+			</a>
+			<div class="alt">
+				<span class="tag">Version 0.1.0 · first test build</span><br>
+				Rather not install? <a href="https://github.com/intity01/ran-nee-lae-releases/releases/latest/download/RanNeeLae.zip">Get the zip</a> (40 MB)<br>
+				Also on <a href="https://im-shines.itch.io/ran-nee-lae">itch.io</a>
+			</div>
+		</div>
+	</header>
+
+	<section aria-labelledby="watch">
+		<h2 id="watch">Trailer</h2>
+		<div class="window"><video class="trailer" src="../media/trailer.mp4" poster="../cover.png" width="1280" height="800"
+			controls muted playsinline preload="metadata">A 32-second trailer</video></div>
+	</section>
+
+	<section aria-labelledby="where">
+		<h2 id="where">Where it sits on your screen</h2>
+		<div class="shots desk">
+			<figure>
+				<div class="window"><img src="../shots/desktop-quiet.png" width="820" height="479"
+					alt="Auntie's shop in the bottom corner of a Windows desktop, above the taskbar, with no window frame"></div>
+				<figcaption>Left alone it is just the shop: no frame, no background, always on top, even over other windows.</figcaption>
+			</figure>
+			<figure>
+				<div class="window"><img src="../shots/desktop-ui.png" width="820" height="479"
+					alt="The same shop with the mouse nearby: a bar with money, hearts, vegetables and buttons appears"></div>
+				<figcaption>Move the mouse close and the menu bar appears.</figcaption>
+			</figure>
+		</div>
+		<p class="note">On first start the shop sits in the bottom-right corner, just above the taskbar. Drag it anywhere and
+			the game remembers. Want it bigger? Set it to 3x in the settings.</p>
+	</section>
+
+	<section aria-labelledby="inside">
+		<h2 id="inside">What's in the shop</h2>
+		<div class="shots">
+			<figure class="wide">
+				<div class="window"><img class="px" src="../shots/day.png" width="640" height="256"
+					alt="The shop by day: a vegetable bed, Auntie at the stove, customers' tables and a hen coop"></div>
+				<figcaption>A long strip at the edge of your screen. Keep working; customers walk in and Auntie cooks by herself.</figcaption>
+			</figure>
+			<figure>
+				<div class="window"><img class="px" src="../shots/cook.png" width="640" height="400"
+					alt="Auntie's hands over the wok, seen through her eyes"></div>
+				<figcaption>Cook a dish yourself through Auntie's hands: cook it well and it sells for more. Busy? Let her cook.</figcaption>
+			</figure>
+			<figure>
+				<div class="window"><img class="px" src="../shots/night.png" width="640" height="256"
+					alt="The shop at night with lanterns lit and the neon sign glowing"></div>
+				<figcaption>Game time follows your real clock. At night the lights come on, and some nights a Thai ghost drops by.</figcaption>
+			</figure>
+		</div>
+		<ul class="menu">
+			<li>Start from an empty lot, scavenge and sell, then build a push cart, a stall and finally a shop.</li>
+			<li>Grow morning glory, holy basil, chillies and lemongrass; keep hens for eggs.</li>
+			<li>Five regulars live their lives on real days: they grow older, change jobs and come to tell Auntie about it.</li>
+			<li>Rain, morning mist and the cool wind follow the Thai seasons, and Loy Krathong comes on the real calendar.</li>
+		</ul>
+	</section>
+
+	<section aria-labelledby="install">
+		<h2 id="install">How to install</h2>
+		<ol class="steps">
+			<li><p>Press <b>Download</b> above and open the <code>RanNeeLae-Setup.exe</code> you get.</p></li>
+			<li><p>If Windows says "Windows protected your PC", press <kbd>More info</kbd> and then <kbd>Run anyway</kbd>.
+				The game has no paid yearly code-signing certificate, so Windows only warns the first time.</p></li>
+			<li><p>Click through the installer and start the game from the rooster icon in the Start menu. No admin rights needed.</p></li>
+		</ol>
+	</section>
+
+	<section aria-labelledby="faq">
+		<h2 id="faq">Questions</h2>
+		<dl class="faq">
+			<div><dt>How do updates work?</dt>
+				<dd>No need to download the whole game again. The game checks when it starts; if there is a new version a
+					"โหลดอัปเดต" (download update) button appears under the top bar. Updates are small and signed, and the game
+					checks the signature every time. You can turn the check off in the settings.</dd></div>
+			<div><dt>Will I lose my save if I uninstall?</dt>
+				<dd>Uninstall from Settings &gt; Apps &gt; ร้านนี้แหละ. The uninstaller asks whether to delete the save; keep it
+					and a reinstall carries on where you left off.</dd></div>
+			<div><dt>How do I know the files weren't changed?</dt>
+				<dd>Compare the SHA-256 of your file with <a href="https://github.com/intity01/ran-nee-lae-releases/releases/latest/download/SHA256SUMS.txt">SHA256SUMS.txt</a> on the releases page.</dd></div>
+			<div><dt>Found a problem, or want to say something?</dt>
+				<dd>Open an issue on the <a href="https://github.com/intity01/ran-nee-lae-releases/issues">Issues page</a>,
+					in English or Thai. This is the first test build, so every note helps a lot.</dd></div>
+		</dl>
+	</section>
+
+	<footer>
+		<span>Free to play, film and stream; please don't sell it or share the files elsewhere (<a href="https://github.com/intity01/ran-nee-lae-releases/blob/main/LICENSE.txt">licence</a>)</span>
+		<span><a href="https://github.com/intity01/ran-nee-lae-releases/releases">All versions</a></span>
+		<span><a href="https://im-shines.itch.io/ran-nee-lae">Ran Nee Lae on itch.io</a></span>
+		<span>Made with <a href="https://godotengine.org">Godot Engine</a></span>
+	</footer>
+</main>
+</body>
+</html>
