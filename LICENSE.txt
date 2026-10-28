@@ -1,0 +1,42 @@
+ร้านนี้แหละ (Ran Nee Lae)
+Copyright (c) 2026 Intity01. สงวนลิขสิทธิ์ทุกประการ / All rights reserved.
+
+ภาษาไทย
+
+เกมนี้แจกให้เล่นฟรี ผู้ที่ได้รับไฟล์เกมจากหน้ารีลีสอย่างเป็นทางการ
+(https://github.com/intity01/ran-nee-lae-releases) มีสิทธิ์ดังนี้
+
+  ทำได้
+  - ติดตั้งและเล่นเกมบนเครื่องของตัวเองได้ฟรี ไม่จำกัดจำนวนเครื่อง
+  - ถ่ายภาพ อัดวิดีโอ สตรีม และทำคลิปจากเกม รวมถึงคลิปที่มีรายได้
+  - บอกต่อหรือแชร์ลิงก์ไปยังหน้ารีลีสอย่างเป็นทางการ
+
+  ห้าม
+  - ขาย ให้เช่า หรือเก็บเงินเพื่อแลกกับไฟล์เกม
+  - แจกไฟล์เกมต่อจากที่อื่นที่ไม่ใช่หน้ารีลีสอย่างเป็นทางการ
+  - แก้ไข แกะ หรือดึงภาพ เสียง เนื้อเรื่อง และโค้ดออกจากเกมไปใช้หรือเผยแพร่
+  - นำชื่อ ตัวละคร หรือภาพของเกมไปใช้เชิงพาณิชย์โดยไม่ได้รับอนุญาตเป็นลายลักษณ์อักษร
+
+เกมนี้ให้มาตามสภาพที่เป็นอยู่ ผู้สร้างไม่รับผิดชอบความเสียหายใดๆ ที่เกิดจากการใช้งาน
+เกมนี้สร้างด้วย Godot Engine (สัญญาอนุญาต MIT) ดูข้อความอนุญาตของ Godot ได้ที่
+https://godotengine.org/license
+
+English
+
+This game is free to play. Anyone who received it from the official releases page
+(https://github.com/intity01/ran-nee-lae-releases) may:
+
+  - install and play it on their own computers, free of charge;
+  - take screenshots, record, stream and make videos of it, including monetised videos;
+  - share links to the official releases page.
+
+You may not:
+
+  - sell, rent or charge for the game files;
+  - redistribute the game files from anywhere other than the official releases page;
+  - modify, decompile or extract the game's art, sound, story or code, or publish them;
+  - use the game's name, characters or art commercially without written permission.
+
+The game is provided "as is", without warranty of any kind. The authors are not liable
+for any damage arising from its use.
+Made with Godot Engine (MIT licence): https://godotengine.org/license
