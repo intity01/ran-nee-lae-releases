@@ -85,6 +85,9 @@ h2 { font: 700 1.6rem/1.4 var(--display); margin: 0 0 14px; text-wrap: balance; 
 .shots .window { border-width: 3px; }
 .shots figcaption { font-size: .95rem; color: var(--ink-soft); line-height: 1.6; }
 .wide { grid-column: 1 / -1; }
+.desk { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.desk img { display: block; width: 100%; height: auto; }
+.note { margin: 14px 0 0; max-width: 42em; color: var(--ink-soft); }
 ul.menu { list-style: none; padding: 0; margin: 18px 0 0; display: grid; gap: 6px; max-width: 40em; }
 ul.menu li { display: grid; grid-template-columns: 1.4em 1fr; }
 ul.menu li::before { content: "•"; color: var(--awning); font-weight: 700; }
@@ -129,6 +132,23 @@ footer { margin-top: 56px; border-top: 1px dashed var(--line); padding-block: 20
 			</div>
 		</div>
 	</header>
+
+	<section aria-labelledby="where">
+		<h2 id="where">อยู่ตรงไหนของจอ</h2>
+		<div class="shots desk">
+			<figure>
+				<div class="window"><img src="shots/desktop-quiet.png" width="820" height="479"
+					alt="ร้านของป้าวางอยู่มุมล่างของหน้าจอ Windows เหนือ taskbar ไม่มีกรอบหน้าต่าง เห็นพื้นหลังจอรอบๆ"></div>
+				<figcaption>ปล่อยไว้เฉยๆ ก็เหลือแค่ร้าน ไม่มีกรอบ ไม่มีพื้นหลัง และอยู่บนสุดเสมอ เปิดงานอื่นทับก็ยังเห็น</figcaption>
+			</figure>
+			<figure>
+				<div class="window"><img src="shots/desktop-ui.png" width="820" height="479"
+					alt="ร้านเดียวกันตอนเอาเมาส์ไปใกล้ มีแถบเงิน หัวใจ ผัก และปุ่มแต่ง ออกไป สมุด สร้าง ขึ้นมา"></div>
+				<figcaption>เอาเมาส์ไปใกล้ แถบเมนูก็ขึ้นมาให้กด</figcaption>
+			</figure>
+		</div>
+		<p class="note">เปิดครั้งแรกร้านจะอยู่มุมขวาล่าง ชิดเหนือ taskbar ลากไปวางตรงไหนก็ได้ เกมจำที่ไว้ให้ ถ้าอยากได้ร้านใหญ่ขึ้น ตั้งเป็น 3 เท่าได้ในหน้าตั้งค่า</p>
+	</section>
 
 	<section aria-labelledby="inside">
 		<h2 id="inside">ในร้านมีอะไร</h2>
