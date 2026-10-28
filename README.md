@@ -8,7 +8,7 @@
 
 ## ดาวน์โหลด
 
-**[โหลดตัวติดตั้ง (Windows, ฟรี)](https://github.com/intity01/ran-nee-lae-releases/releases/latest/download/RanNeeLae-Setup.exe)** · หน้าเว็บของเกม: https://intity01.github.io/ran-nee-lae-releases/
+**[โหลดตัวติดตั้ง (Windows, ฟรี)](https://github.com/intity01/ran-nee-lae-releases/releases/latest/download/RanNeeLae-Setup.exe)** · หน้าเว็บของเกม: https://intity01.github.io/ran-nee-lae-releases/ · มีบน [itch.io](https://im-shines.itch.io/ran-nee-lae) ด้วย
 
 หรือไปที่ [หน้ารีลีส](https://github.com/intity01/ran-nee-lae-releases/releases) แล้วเลือกหนึ่งไฟล์จากรุ่นบนสุด
 
