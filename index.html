@@ -87,6 +87,7 @@ h2 { font: 700 1.6rem/1.4 var(--display); margin: 0 0 14px; text-wrap: balance; 
 .wide { grid-column: 1 / -1; }
 .desk { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
 .desk img { display: block; width: 100%; height: auto; }
+.trailer { display: block; width: 100%; height: auto; background: #1c1624; }
 .note { margin: 14px 0 0; max-width: 42em; color: var(--ink-soft); }
 ul.menu { list-style: none; padding: 0; margin: 18px 0 0; display: grid; gap: 6px; max-width: 40em; }
 ul.menu li { display: grid; grid-template-columns: 1.4em 1fr; }
@@ -132,6 +133,12 @@ footer { margin-top: 56px; border-top: 1px dashed var(--line); padding-block: 20
 			</div>
 		</div>
 	</header>
+
+	<section aria-labelledby="watch">
+		<h2 id="watch">ดูตัวอย่าง</h2>
+		<div class="window"><video class="trailer" src="media/trailer.mp4" poster="cover.png" width="1280" height="800"
+			controls muted playsinline preload="metadata">ตัวอย่างเกม 32 วินาที</video></div>
+	</section>
 
 	<section aria-labelledby="where">
 		<h2 id="where">อยู่ตรงไหนของจอ</h2>
