@@ -6,8 +6,8 @@
 
 ตอนนี้มีแค่ภาษาไทย และเล่นได้บน Windows 10/11 (64 บิต)
 
-> **In English:** a cozy pixel Thai restaurant that stays open at the edge of your screen all day. The game is in Thai
-> for now; an English version is on the way, menus first. [Download page in English](https://intity01.github.io/ran-nee-lae-releases/en/).
+> **In English:** a cozy pixel Thai restaurant that stays open at the edge of your screen all day. Menus, buttons and the
+> names of things can be English (Decor > Settings > Language); the story is still in Thai. [Download page in English](https://intity01.github.io/ran-nee-lae-releases/en/).
 
 ## ดาวน์โหลด
 
