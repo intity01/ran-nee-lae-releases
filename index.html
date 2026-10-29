@@ -149,7 +149,7 @@ document.addEventListener("click", function (e) {
 				<small>ตัวติดตั้ง · Windows 10/11 · 30 MB · ฟรี</small>
 			</a>
 			<div class="alt">
-				<span class="tag" id="version">รุ่น 0.1.3 · รุ่นทดสอบ</span> <a href="https://github.com/intity01/ran-nee-lae-releases/releases/latest">มีอะไรใหม่</a><br>
+				<span class="tag" id="version">รุ่น 0.1.4 · รุ่นทดสอบ</span> <a href="https://github.com/intity01/ran-nee-lae-releases/releases/latest">มีอะไรใหม่</a><br>
 				ไม่อยากติดตั้ง? <a href="https://github.com/intity01/ran-nee-lae-releases/releases/latest/download/RanNeeLae.zip">โหลดแบบ zip</a> (40 MB)<br>
 				มีบน <a href="https://im-shines.itch.io/ran-nee-lae">itch.io</a> ด้วย
 			</div>
@@ -176,7 +176,7 @@ document.addEventListener("click", function (e) {
 				<figcaption>เอาเมาส์ไปใกล้ แถบเมนูก็ขึ้นมาให้กด</figcaption>
 			</figure>
 		</div>
-		<p class="note">เปิดครั้งแรกร้านจะอยู่มุมขวาล่าง ชิดเหนือ taskbar ลากไปวางตรงไหนก็ได้ เกมจำที่ไว้ให้ ถ้าอยากได้ร้านใหญ่ขึ้น ตั้งเป็น 3 เท่าได้ในหน้าตั้งค่า</p>
+		<p class="note">เปิดครั้งแรกร้านจะอยู่มุมขวาล่าง ชิดเหนือ taskbar จะย้ายก็ลากที่ตัวป้า หรือลากปุ่มลูกศรสี่ทางที่มุมซ้ายล่าง เกมจำที่ไว้ให้ ที่ว่างรอบร้านคลิกทะลุไปโปรแกรมข้างหลังได้ ถ้าอยากได้ร้านใหญ่ขึ้น ตั้งได้ถึง 4 เท่าในหน้าตั้งค่า</p>
 	</section>
 
 	<section aria-labelledby="inside">
@@ -203,6 +203,8 @@ document.addEventListener("click", function (e) {
 			<li>ปลูกผักบุ้ง กะเพรา พริก ตะไคร้ เลี้ยงไก่ไว้เอาไข่</li>
 			<li>ขาประจำห้าคนมีชีวิตเดินไปตามวันจริง แก่ลง เปลี่ยนงาน มีเรื่องมาเล่าให้ป้าฟัง</li>
 			<li>ฝน หมอก และลมหนาวเปลี่ยนไปตามฤดูของไทย มีลอยกระทงตามปฏิทินจริง</li>
+			<li>กดตัวเลขผักบนแถบบนเพื่อดูของทั้งหมดในคลัง สมุดของป้านับวันของร้านไว้ให้</li>
+			<li>เมนูและปุ่มเลือกได้ทั้งไทยและอังกฤษ ส่วนเนื้อเรื่องยังเป็นภาษาไทย</li>
 		</ul>
 	</section>
 
@@ -220,13 +222,15 @@ document.addEventListener("click", function (e) {
 		<h2 id="faq">ถามบ่อย</h2>
 		<dl class="faq">
 			<div><dt>อัปเดตยังไง</dt>
-				<dd>ไม่ต้องโหลดใหม่ทั้งเกม ตอนเปิดเกมจะเช็กให้ ถ้ามีรุ่นใหม่จะขึ้นปุ่ม "โหลดอัปเดต" ใต้แถบบน ไฟล์เล็กและเกมตรวจลายเซ็นก่อนใช้ทุกครั้ง ปิดการเช็กได้ในหน้าตั้งค่า</dd></div>
+				<dd>ไม่ต้องโหลดใหม่ทั้งเกม ตอนเปิดเกมจะเช็กให้ ถ้ามีรุ่นใหม่จะขึ้นปุ่ม "โหลดอัปเดต" ใต้แถบบน กดแล้วเปิดเกมใหม่ ไฟล์เล็กและเกมตรวจลายเซ็นก่อนใช้ทุกครั้ง ปิดการเช็กได้ในหน้าตั้งค่า ส่วนตัวติดตั้งบนหน้านี้เป็นรุ่นล่าสุดเสมอ</dd></div>
+			<div><dt>เกมใช้เน็ตทำอะไร</dt>
+				<dd>แค่เช็กอัปเดตตอนเปิดเกม เซฟอยู่ในเครื่องของคุณ ไม่มีการส่งข้อมูลอื่นออกไป</dd></div>
 			<div><dt>ลบเกมแล้วเซฟหายไหม</dt>
 				<dd>ถอนเกมได้ที่ Settings &gt; Apps &gt; ร้านนี้แหละ ตัวถอนจะถามก่อนว่าจะลบเซฟด้วยไหม ถ้าไม่ลบ ติดตั้งใหม่ก็เล่นต่อจากเดิมได้</dd></div>
 			<div><dt>จะรู้ได้ยังไงว่าไฟล์ไม่ถูกแก้</dt>
 				<dd>เทียบค่า SHA-256 ของไฟล์กับ <a href="https://github.com/intity01/ran-nee-lae-releases/releases/latest/download/SHA256SUMS.txt">SHA256SUMS.txt</a> ที่อยู่ในหน้ารีลีส</dd></div>
 			<div><dt>เจอปัญหา หรืออยากบอกอะไร</dt>
-				<dd>เปิดเรื่องไว้ที่ <a href="https://github.com/intity01/ran-nee-lae-releases/issues">หน้า Issues</a> ได้เลย รุ่นนี้เป็นรุ่นทดสอบแรก ทุกความเห็นช่วยได้มาก</dd></div>
+				<dd>เปิดเรื่องไว้ที่ <a href="https://github.com/intity01/ran-nee-lae-releases/issues">หน้า Issues</a> ได้เลย เกมยังเป็นรุ่นทดสอบ ทุกความเห็นช่วยได้มาก</dd></div>
 		</dl>
 	</section>
 
