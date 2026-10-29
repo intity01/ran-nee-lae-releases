@@ -143,7 +143,7 @@ document.addEventListener("click", function (e) {
 				<small>Installer · Windows 10/11 · 30 MB · Free</small>
 			</a>
 			<div class="alt">
-				<span class="tag">Version 0.1.3 · test build</span><br>
+				<span class="tag" id="version">Version 0.1.3 · test build</span> <a href="https://github.com/intity01/ran-nee-lae-releases/releases/latest">What's new</a><br>
 				Rather not install? <a href="https://github.com/intity01/ran-nee-lae-releases/releases/latest/download/RanNeeLae.zip">Get the zip</a> (40 MB)<br>
 				Also on <a href="https://im-shines.itch.io/ran-nee-lae">itch.io</a>
 			</div>
@@ -236,5 +236,17 @@ document.addEventListener("click", function (e) {
 		<span>Made with <a href="https://godotengine.org">Godot Engine</a></span>
 	</footer>
 </main>
+<script>
+// The version line follows the newest release by itself (the download buttons already do: releases/latest/download/).
+// The text written in the page stays if GitHub does not answer.
+fetch("https://api.github.com/repos/intity01/ran-nee-lae-releases/releases/latest")
+	.then(r => r.ok ? r.json() : Promise.reject(r.status))
+	.then(release => {
+		const version = release.tag_name.replace(/^v/, "");
+		const date = new Date(release.published_at).toLocaleDateString("en-GB", {day: "numeric", month: "short", year: "numeric"});
+		document.getElementById("version").textContent = "Version " + version + " · test build · " + date;
+	})
+	.catch(() => {});
+</script>
 </body>
 </html>
