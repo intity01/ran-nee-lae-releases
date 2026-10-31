@@ -1,6 +1,8 @@
 // ร้านนี้แหละ download site: the version line, the language a visitor picked, the regulars' lines, the comments
 // (the owner's Supabase project, rules in tools/site/comments.sql) and the download page's countdown.
 // One file for the Thai and the English pages; the page's <html lang> picks the words.
+// The pages load site.css?v=N and site.js?v=N: raise N on all four pages at each publish, or browsers keep the old files
+// for up to 10 minutes (GitHub Pages sends max-age=600).
 (function () {
 	"use strict";
 	var SUPABASE = "https://dovodyfeffwachtbpqfm.supabase.co/rest/v1/comments";
