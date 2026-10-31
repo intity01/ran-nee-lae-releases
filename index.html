@@ -14,6 +14,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;700&amp;display=swap">
 <link rel="stylesheet" href="site.css">
+<script>(function(){var t=null;try{t=localStorage.getItem("theme")}catch(_){}document.documentElement.dataset.theme=t||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")})()</script>
 <script>
 (function () {   // a first visit from a non-Thai browser, or someone who picked English before, goes to the English page
 	var saved = null;
@@ -34,9 +35,18 @@
 		<a href="#faq">คำถาม</a>
 		<a href="#talk">ความเห็น</a>
 		<a class="chip" href="en/" hreflang="en" lang="en">English</a>
-		<a class="btn" href="download.html"><span class="ic basket"></span>ดาวน์โหลดฟรี</a>
 	</nav>
 </header>
+<nav class="rail" aria-label="ช่วงเวลาในหน้า">
+	<div class="wrap">
+		<div class="times"><a href="#t0730">07:30</a><a href="#t1100">11:00</a><a href="#t1300">13:00</a><a href="#t1530">15:30</a><a href="#t1820">18:20</a><a href="#t2100">21:00</a></div>
+		<div class="tools">
+			<a class="count" href="#talk"><span class="ic note"></span><span class="word">ความเห็น </span><span data-count></span></a>
+			<button type="button" class="chip theme" aria-label="สลับธีมมืดหรือสว่าง" title="ธีมมืด / สว่าง"><span class="ic"></span></button>
+			<a class="btn" href="download.html"><span class="ic basket"></span><span class="word">ดาวน์โหลดฟรี</span></a>
+		</div>
+	</div>
+</nav>
 
 <main id="main">
 <section class="wrap">
@@ -44,7 +54,7 @@
 	<p class="meta"><span data-version>รุ่นทดสอบ</span> · Windows 10/11 · 31 MB · <a href="https://github.com/intity01/ran-nee-lae-releases/releases/latest">มีอะไรใหม่</a> · <a href="https://im-shines.itch.io/ran-nee-lae">itch.io</a></p>
 </section>
 
-<section class="day" aria-label="เช้า">
+<section id="t0730" class="day" aria-label="เช้า">
 	<div class="wrap"><span class="chip clock"><span class="ic sun"></span>07:30</span></div>
 	<div class="strip"><img src="img/strip-morning.png" width="960" height="372" alt="ร้านของป้าตอนเช้าหน้าหนาว แดดส่องเฉียงเข้าร้าน"></div>
 	<p class="wrap caption">เริ่มจากลานว่างในซอย เก็บของ ขายของ แล้วสร้างรถเข็น แผงลอย จนเป็นร้าน</p>
@@ -64,25 +74,25 @@
 	</div>
 </section>
 
-<section class="wrap pair" aria-label="ทำกับข้าว">
+<section id="t1100" class="wrap pair" aria-label="ทำกับข้าว">
 	<div class="words"><span class="chip clock"><span class="ic sun"></span>11:00</span>
 		<p>ทำกับข้าวเองผ่านมือป้า ทอดไข่ ผัดกะเพรา โยนกระทะ ทำดีขายได้แพงขึ้น ยุ่งอยู่ก็ปล่อยให้ป้าทำเอง</p></div>
 	<div class="panel"><img src="img/panel-cook.png" width="640" height="400" alt="มือป้ากำลังผัดกะเพราในกระทะ"></div>
 </section>
 
-<section class="wrap pair flip" aria-label="สวนหลังร้าน" style="padding-top:0">
+<section id="t1300" class="wrap pair flip" aria-label="สวนหลังร้าน" style="padding-top:0">
 	<div class="panel"><img src="img/panel-garden.png" width="640" height="400" alt="สวนหลังร้าน แปลงผักและเล้าไก่"></div>
 	<div class="words"><span class="chip clock"><span class="ic sun"></span>13:00</span>
 		<p>ปลูกผักบุ้ง กะเพรา พริก ตะไคร้ เลี้ยงไก่เก็บไข่ ฟักลูกเจี๊ยบแล้วตั้งชื่อเอง</p></div>
 </section>
 
-<section class="day rainy" aria-label="ฝน">
+<section id="t1530" class="day rainy" aria-label="ฝน">
 	<div class="wrap"><span class="chip clock"><span class="ic sun"></span>15:30</span></div>
 	<div class="strip"><img src="img/strip-rain.png" width="960" height="384" alt="ฝนตกหนักหน้าร้าน"></div>
 	<p class="wrap caption">ฝน หมอกเช้า ลมหนาว ตามฤดูไทยจริง ทุกคนเห็นฝนห่าเดียวกันในวันเดียวกัน ลอยกระทงมาตามปฏิทินจริง</p>
 </section>
 
-<section class="day dusky" aria-label="ขาประจำ">
+<section id="t1820" class="day dusky" aria-label="ขาประจำ">
 	<div class="wrap"><span class="chip clock"><span class="ic sun"></span>18:20</span></div>
 	<div class="strip"><img src="img/strip-dusk.png" width="960" height="372" alt="ร้านตอนเย็น ไฟเริ่มติด"></div>
 	<div class="wrap">
@@ -109,7 +119,7 @@
 	</ul>
 </section>
 
-<section class="day night" aria-label="กลางคืน">
+<section id="t2100" class="day night" aria-label="กลางคืน">
 	<div class="wrap"><span class="chip clock"><span class="ic moon"></span>21:00</span></div>
 	<div class="strip"><img src="img/strip-night.png" width="960" height="372" alt="ร้านตอนกลางคืน โคมไฟติด"></div>
 	<div class="wrap pair" style="padding-bottom:0">
@@ -152,6 +162,7 @@
 	<ol id="comments" aria-label="ความเห็น"><li>กำลังโหลด…</li></ol>
 </section>
 </main>
+<a class="chip totop" href="#" hidden>↑ บนสุด</a>
 
 <footer>
 	เล่น ถ่าย สตรีมได้ฟรี ห้ามขายหรือแจกไฟล์ที่อื่น (<a href="LICENSE.txt">ข้อตกลง</a>) ·

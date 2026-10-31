@@ -36,6 +36,47 @@
 		if (a) { try { localStorage.setItem("lang", a.getAttribute("hreflang")); } catch (_) {} }
 	});
 
+	// Dark or light: the line in each page's head already set data-theme (a pick kept in localStorage, else the system's);
+	// the switch flips it and keeps the pick. With no pick the page follows the system as it changes.
+	var root = document.documentElement;
+	document.querySelectorAll(".theme").forEach(function (button) {
+		button.addEventListener("click", function () {
+			var next = root.dataset.theme === "dark" ? "light" : "dark";
+			root.dataset.theme = next;
+			try { localStorage.setItem("theme", next); } catch (_) {}
+		});
+	});
+	var system = window.matchMedia && matchMedia("(prefers-color-scheme: dark)");
+	if (system && system.addEventListener) {
+		system.addEventListener("change", function (e) {
+			var picked = null;
+			try { picked = localStorage.getItem("theme"); } catch (_) {}
+			if (!picked) root.dataset.theme = e.matches ? "dark" : "light";
+		});
+	}
+
+	// The rail marks the time of day being read; the back-to-top chip shows once the header is far away.
+	var marks = document.querySelectorAll(".times a");
+	if (marks.length && "IntersectionObserver" in window) {
+		var seen = new IntersectionObserver(function (entries) {
+			entries.forEach(function (entry) {
+				if (!entry.isIntersecting) return;
+				marks.forEach(function (a) {
+					var now = a.hash === "#" + entry.target.id;
+					a.setAttribute("aria-current", now ? "true" : "false");
+					if (now) a.parentNode.scrollLeft = a.offsetLeft - a.parentNode.offsetLeft - 8;   // a phone shows only a few times
+				});
+			});
+		}, {rootMargin: "-40% 0px -55% 0px"});
+		marks.forEach(function (a) { var target = document.querySelector(a.hash); if (target) seen.observe(target); });
+	}
+	var top = document.querySelector(".totop");
+	if (top) {
+		var place = function () { top.hidden = window.scrollY < 900; };
+		window.addEventListener("scroll", place, {passive: true});
+		place();
+	}
+
 	// The regulars: a press shows that person's line.
 	var said = document.getElementById("said");
 	document.querySelectorAll(".cast button").forEach(function (button, _, all) {
@@ -70,16 +111,32 @@
 		return new Date(iso).toLocaleDateString(en ? "en-GB" : "th-TH", {day: "numeric", month: "short", year: "numeric"});
 	}
 
-	// Built with textContent only: nothing a visitor types is ever read as HTML.
+	// Each comment is said by one of the game's walk-ins (img/guests.png, make_pieces.py), picked from the name, so the
+	// same name keeps the same face. Built with textContent only: nothing a visitor types is ever read as HTML.
+	var GUESTS = 24;
+	function guestOf(seed) {
+		var h = 0;
+		for (var i = 0; i < seed.length; i++) h = (h * 31 + seed.charCodeAt(i)) >>> 0;
+		return h % GUESTS;
+	}
+
 	function show(rows) {
 		list.textContent = "";
+		document.querySelectorAll("[data-count]").forEach(function (el) { el.textContent = rows.length >= 50 ? "50+" : rows.length; });
 		if (!rows.length) {
 			var none = document.createElement("li");
+			none.className = "none";
 			none.textContent = WORDS.empty;
 			list.appendChild(none);
 		}
 		rows.forEach(function (row) {
 			var li = document.createElement("li");
+			var face = document.createElement("span");
+			face.className = "guest";
+			face.setAttribute("aria-hidden", "true");
+			face.style.backgroundPosition = (-36 * guestOf(row.name || row.created_at)) + "px 0";
+			var box = document.createElement("div");
+			box.className = "said-box";
 			var who = document.createElement("b");
 			who.textContent = row.name || WORDS.anon;
 			var time = document.createElement("time");
@@ -87,7 +144,8 @@
 			time.textContent = when(row.created_at);
 			var body = document.createElement("p");
 			body.textContent = row.body;
-			li.append(who, time, body);
+			box.append(who, time, body);
+			li.append(face, box);
 			list.appendChild(li);
 		});
 	}

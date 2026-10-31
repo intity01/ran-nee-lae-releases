@@ -14,6 +14,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;700&amp;display=swap">
 <link rel="stylesheet" href="../site.css">
+<script>(function(){var t=null;try{t=localStorage.getItem("theme")}catch(_){}document.documentElement.dataset.theme=t||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")})()</script>
 <script src="../site.js" defer></script>
 </head>
 <body>
@@ -25,9 +26,18 @@
 		<a href="#faq">Questions</a>
 		<a href="#talk">Comments</a>
 		<a class="chip" href="../" hreflang="th" lang="th">ภาษาไทย</a>
-		<a class="btn" href="download.html"><span class="ic basket"></span>Download free</a>
 	</nav>
 </header>
+<nav class="rail" aria-label="Times of day on this page">
+	<div class="wrap">
+		<div class="times"><a href="#t0730">07:30</a><a href="#t1100">11:00</a><a href="#t1300">13:00</a><a href="#t1530">15:30</a><a href="#t1820">18:20</a><a href="#t2100">21:00</a></div>
+		<div class="tools">
+			<a class="count" href="#talk"><span class="ic note"></span><span class="word">Comments </span><span data-count></span></a>
+			<button type="button" class="chip theme" aria-label="Switch dark or light theme" title="Dark / light"><span class="ic"></span></button>
+			<a class="btn" href="download.html"><span class="ic basket"></span><span class="word">Download free</span></a>
+		</div>
+	</div>
+</nav>
 
 <main id="main">
 <section class="wrap">
@@ -36,7 +46,7 @@
 	<p class="box note-en">Menus in English: pick English under Decor › Settings › Language. The menus, buttons, hints and the names of things are translated; the story is still in Thai for now.</p>
 </section>
 
-<section class="day" aria-label="Morning">
+<section id="t0730" class="day" aria-label="Morning">
 	<div class="wrap"><span class="chip clock"><span class="ic sun"></span>07:30</span></div>
 	<div class="strip"><img src="../img/strip-morning.png" width="960" height="372" alt="Auntie's shop on a cool-season morning, sunlight slanting in"></div>
 	<p class="wrap caption">Start from an empty lot in the soi: scavenge and sell, then build a push cart, a stall and finally a shop.</p>
@@ -56,25 +66,25 @@
 	</div>
 </section>
 
-<section class="wrap pair" aria-label="Cooking">
+<section id="t1100" class="wrap pair" aria-label="Cooking">
 	<div class="words"><span class="chip clock"><span class="ic sun"></span>11:00</span>
 		<p>Cook a dish yourself through Auntie's hands: beat the egg, stir-fry the basil, toss the wok. Cook it well and it sells for more. Busy? Let her cook.</p></div>
 	<div class="panel"><img src="../img/panel-cook.png" width="640" height="400" alt="Auntie's hands stir-frying basil chicken in a wok"></div>
 </section>
 
-<section class="wrap pair flip" aria-label="The back garden" style="padding-top:0">
+<section id="t1300" class="wrap pair flip" aria-label="The back garden" style="padding-top:0">
 	<div class="panel"><img src="../img/panel-garden.png" width="640" height="400" alt="The back garden: vegetable beds and the hen house"></div>
 	<div class="words"><span class="chip clock"><span class="ic sun"></span>13:00</span>
 		<p>Grow morning glory, holy basil, chillies and lemongrass; keep hens for eggs, hatch chicks and name them.</p></div>
 </section>
 
-<section class="day rainy" aria-label="Rain">
+<section id="t1530" class="day rainy" aria-label="Rain">
 	<div class="wrap"><span class="chip clock"><span class="ic sun"></span>15:30</span></div>
 	<div class="strip"><img src="../img/strip-rain.png" width="960" height="384" alt="Heavy rain in front of the shop"></div>
 	<p class="wrap caption">Rain, morning mist and the cool wind follow the Thai seasons, the same for everyone on the same day, and Loy Krathong comes on the real calendar.</p>
 </section>
 
-<section class="day dusky" aria-label="The regulars">
+<section id="t1820" class="day dusky" aria-label="The regulars">
 	<div class="wrap"><span class="chip clock"><span class="ic sun"></span>18:20</span></div>
 	<div class="strip"><img src="../img/strip-dusk.png" width="960" height="372" alt="The shop at dusk as the lights come on"></div>
 	<div class="wrap">
@@ -101,7 +111,7 @@
 	</ul>
 </section>
 
-<section class="day night" aria-label="Night">
+<section id="t2100" class="day night" aria-label="Night">
 	<div class="wrap"><span class="chip clock"><span class="ic moon"></span>21:00</span></div>
 	<div class="strip"><img src="../img/strip-night.png" width="960" height="372" alt="The shop at night with the lanterns lit"></div>
 	<div class="wrap pair" style="padding-bottom:0">
@@ -144,6 +154,7 @@
 	<ol id="comments" aria-label="Comments"><li>Loading…</li></ol>
 </section>
 </main>
+<a class="chip totop" href="#" hidden>↑ Top</a>
 
 <footer>
 	Free to play, film and stream; please don't sell it or share the files elsewhere (<a href="../LICENSE.txt">licence</a>) ·

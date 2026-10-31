@@ -11,6 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;700&amp;display=swap">
 <link rel="stylesheet" href="../site.css">
+<script>(function(){var t=null;try{t=localStorage.getItem("theme")}catch(_){}document.documentElement.dataset.theme=t||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")})()</script>
 <script src="../site.js" defer></script>
 </head>
 <body>
@@ -18,6 +19,7 @@
 	<a href="./"><img src="../img/logo.png" width="148" height="37" alt="Ran Nee Lae home"></a>
 	<nav aria-label="Pages">
 		<a href="./">Back to the game</a>
+		<button type="button" class="chip theme" aria-label="Switch dark or light theme" title="Dark / light"><span class="ic"></span></button>
 		<a class="chip" href="../download.html" hreflang="th" lang="th">ภาษาไทย</a>
 	</nav>
 </header>
