@@ -1,0 +1,89 @@
+/* ร้านนี้แหละ download site. Built from the game's own pieces: the chip, panel and red button nine-patches
+   (shop-overlay/assets/ui, 4 px corners drawn at 3x), the icon strip, and real frames of the game. Pixel pictures are
+   only ever shown at whole multiples (strips 320 px wide at 3x, panels captured at 2x shown 1:1) and scroll
+   sideways on a narrow screen instead of shrinking. The day runs down the page: morning, noon, rain, dusk, night. */
+*,*::before,*::after{box-sizing:border-box}
+:root{
+	--ground:#f4ecdf; --ink:#16233d; --ink-soft:#6b5444; --rule:#c9b48f;
+	--rain:#d9d6cf; --dusk:#f1d6b2; --night:#1d1a2a; --night-ink:#e8e4f4; --night-soft:#b9b3cf;
+	--link:#a8382b; --night-link:#f2c06a; --chip-edge:#e7dccb;
+	--font:"Leelawadee UI","Noto Sans Thai",Tahoma,sans-serif;
+}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.6}
+img{image-rendering:pixelated}
+img.photo{image-rendering:auto;max-width:100%;height:auto}
+.panel:has(img.photo){overflow:visible}
+a{color:var(--link)}
+h2{margin:0 0 8px;font-size:24px;line-height:1.3}
+p{margin:0}
+.wrap{max-width:1000px;margin:0 auto;padding:0 20px}
+.skip{position:absolute;left:-999px}
+.skip:focus{left:12px;top:12px;background:#fff;padding:8px;z-index:9}
+
+/* the game's nine-patch pieces */
+.chip,.btn,.box{border:12px solid transparent;border-image-slice:4 fill;border-image-width:12px;border-image-repeat:stretch;image-rendering:pixelated}
+.chip{border-image-source:url(img/chip.png);display:inline-flex;align-items:center;gap:6px;padding:0 4px;color:var(--ink);text-decoration:none;font:inherit;font-size:16px;background:none;min-height:44px}
+.btn{border-image-source:url(img/button-primary.png);display:inline-flex;align-items:center;gap:8px;padding:2px 8px;color:#fff8ec;text-decoration:none;font:inherit;font-weight:700;background:none;min-height:44px;cursor:pointer}
+.box{border-image-source:url(img/panel.png);padding:4px 8px}
+.ic{display:inline-block;width:24px;height:24px;flex:none;background:url(img/icons.png) 0 0/504px 24px no-repeat;image-rendering:pixelated}
+.ic.sun{background-position:-72px 0} .ic.moon{background-position:-96px 0} .ic.basket{background-position:-480px 0}
+.clock{cursor:default;margin-bottom:10px}
+
+/* top */
+.top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;padding-top:20px;padding-bottom:8px}
+.top nav{display:flex;flex-wrap:wrap;align-items:center;gap:4px}
+.top nav a:not(.btn):not(.chip){padding:12px 8px;font-size:15px}
+.hook{font-size:20px;max-width:760px;margin-top:12px}
+.meta{font-size:14px;color:var(--ink-soft);margin-top:10px}
+.note-en{margin-top:14px;font-size:15px;max-width:760px}
+
+/* pictures */
+.strip{overflow-x:auto;display:flex;justify-content:safe center}
+.strip img,.panel img{flex:none;display:block}
+.panel{overflow-x:auto;flex:0 1 640px}
+.day{padding:40px 0 44px}
+.day .caption{margin-top:12px}
+.pair{display:flex;flex-wrap:wrap;gap:28px;align-items:flex-start;padding-top:44px;padding-bottom:44px}
+.pair.flip{flex-wrap:wrap-reverse}
+.pair .words{flex:1 1 260px;padding-top:8px}
+.rainy{background:var(--rain)} .dusky{background:var(--dusk)} .screen{background:var(--chip-edge);padding:44px 0}
+.night{background:var(--night);color:var(--night-ink)} .night a{color:var(--night-link)} .night .soft{color:var(--night-soft)}
+.points{margin:18px 0 0;padding-left:20px;line-height:1.9;font-size:16px}
+
+/* regulars */
+.cast{display:flex;flex-wrap:wrap;gap:6px;align-items:flex-end;margin-top:12px}
+.cast button{padding:0;border:0;background:transparent;cursor:pointer;transition:transform .15s}
+.cast button[aria-pressed="true"]{transform:translateY(-6px)}
+.cast img{width:102px;height:138px;display:block}
+.said{margin-top:10px;max-width:640px;cursor:default}
+
+/* trailer, install, questions */
+video{width:100%;max-width:960px;display:block;background:var(--chip-edge)}
+.install{margin-top:44px}
+.install .row{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-bottom:18px}
+details{border-top:2px dashed var(--rule);font-size:16px}
+summary{cursor:pointer;font-weight:700;padding:10px 0}
+details p{margin:0 0 12px}
+
+/* comments */
+.talk form{display:flex;flex-direction:column;gap:8px;max-width:640px;margin-top:16px}
+.talk label{font-size:14px;font-weight:700}
+.talk input,.talk textarea{font:inherit;font-size:16px;padding:10px;border:2px solid #78563c;background:#fffaf0;color:var(--ink)}
+.talk .status{font-size:14px;color:var(--ink-soft);min-height:1.6em}
+.talk ol{list-style:none;margin:18px 0 0;padding:0;max-width:760px}
+.talk li{padding:12px 0;border-top:2px dashed var(--rule)}
+.talk li b{margin-right:6px} .talk time{font-size:14px;color:var(--ink-soft)}
+.talk li p{white-space:pre-line;overflow-wrap:anywhere}
+.more{margin-top:12px}
+
+footer{border-top:2px solid var(--rule);padding:22px 20px;text-align:center;font-size:14px;color:var(--ink-soft);line-height:1.8}
+
+/* the download page: ป้า counting the seconds in a speech bubble */
+.fetch{display:flex;flex-wrap:wrap;gap:24px 40px;align-items:flex-end;padding-top:24px;padding-bottom:40px}
+.fetch .aunt{display:flex;flex-direction:column;align-items:flex-start;gap:22px}
+.fetch .aunt img{margin-left:8px}
+.fetch .words{flex:1 1 320px;padding-bottom:12px}
+.bubble{position:relative;margin:0;background:#fffdf7;border:3px solid var(--ink);padding:12px 18px;font-size:22px;font-weight:700}
+.bubble::after{content:"";position:absolute;left:28px;bottom:-15px;border:12px solid transparent;border-top-color:var(--ink);border-bottom:0}
+.row{display:flex;flex-wrap:wrap;gap:12px 18px;align-items:center}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;font-size:16px}

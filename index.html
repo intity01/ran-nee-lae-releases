@@ -3,255 +3,160 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<link rel="icon" type="image/png" href="icon.png">
-<meta property="og:title" content="ร้านนี้แหละ">
-<meta property="og:description" content="เกมร้านอาหารไทยแบบพิกเซล เปิดค้างไว้ที่ขอบหน้าจอได้ทั้งวัน เล่นฟรีบน Windows">
-<meta property="og:image" content="https://intity01.github.io/ran-nee-lae-releases/cover.png">
 <title>ร้านนี้แหละ</title>
-<meta name="description" content="เกมร้านอาหารไทยแบบพิกเซล เปิดค้างไว้ที่ขอบหน้าจอได้ทั้งวัน เล่นฟรีบน Windows">
+<meta name="description" content="ร้านข้าวเล็กๆ ในซอยไทยที่นั่งอยู่มุมจอคุณ เกมพิกเซลเล่นฟรีบน Windows">
+<meta property="og:title" content="ร้านนี้แหละ">
+<meta property="og:description" content="ร้านข้าวเล็กๆ ในซอยไทยที่นั่งอยู่มุมจอคุณ ลูกค้าประจำแก่ลงทุกวัน และบางคนกลับมาหาป้าอีกครั้งตอนกลางคืน">
+<meta property="og:image" content="https://intity01.github.io/ran-nee-lae-releases/cover.png">
+<link rel="icon" type="image/png" href="icon.png">
+<link rel="alternate" hreflang="en" href="en/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mali:wght@600;700&family=IBM+Plex+Sans+Thai+Looped:wght@400;600&display=swap">
-<style>
-*,*::before,*::after{box-sizing:border-box}
-body{margin:0}
-img{max-width:100%}
-/* Layout: one warm column under the shop's striped awning; the cover is the shop window, the button is the till. */
-:root {
-	--ground: #f6ecda;      /* concrete in the sun */
-	--paper: #fffaf0;       /* enamel plate */
-	--ink: #3a2620;         /* outline ink, warm */
-	--ink-soft: #6e5446;
-	--awning: #de3434;      /* awning red */
-	--awning-deep: #b02430;
-	--stripe: #fffcf6;
-	--wood: #b6743e;
-	--line: #e3d2b8;
-	--gold: #eeb632;
-	--on-awning: #fffaf0;
-	--link: #b02430;
-	--display: "Mali", "Itim", "Leelawadee UI", sans-serif;
-	--body: "IBM Plex Sans Thai Looped", "Leelawadee UI", "Tahoma", sans-serif;
-}
-@media (prefers-color-scheme: dark) {
-	:root:not([data-theme="light"]) {
-		--ground: #2a2440; --paper: #352d50; --ink: #f6ead2; --ink-soft: #c9bcd6;
-		--awning: #f0605a; --awning-deep: #c8404a; --stripe: #f2e6d8; --wood: #e0a46a;
-		--line: #4a4068; --gold: #ffd75e; --on-awning: #2a1a1a; --link: #ffb4a8; color-scheme: dark;
-	}
-}
-:root[data-theme="dark"] {
-	--ground: #2a2440; --paper: #352d50; --ink: #f6ead2; --ink-soft: #c9bcd6;
-	--awning: #f0605a; --awning-deep: #c8404a; --stripe: #f2e6d8; --wood: #e0a46a;
-	--line: #4a4068; --gold: #ffd75e; --on-awning: #2a1a1a; --link: #ffb4a8; color-scheme: dark;
-}
-
-body { background: var(--ground); color: var(--ink); font: 400 1.0625rem/1.75 var(--body); }
-img.px { image-rendering: pixelated; display: block; width: 100%; height: auto; }
-a { color: var(--link); text-underline-offset: 3px; }
-a:focus-visible, .buy:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
-
-/* the awning: red and white stripes ending in scallops, like the shop's own */
-.awning { height: 46px; position: relative;
-	background: repeating-linear-gradient(90deg, var(--awning) 0 40px, var(--stripe) 40px 80px); }
-.awning::after { content: ""; position: absolute; left: 0; right: 0; top: 100%; height: 14px;
-	background: radial-gradient(circle at 20px 0, var(--awning) 13px, transparent 14px) 0 0 / 80px 14px repeat-x,
-		radial-gradient(circle at 20px 0, var(--stripe) 13px, transparent 14px) 40px 0 / 80px 14px repeat-x; }
-
-.wrap { max-width: 880px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px));
-	padding-right: max(16px, env(safe-area-inset-right, 0px)); }
-
-.hero { padding-block: 40px 8px; display: grid; gap: 22px; }
-.window { border: 4px solid var(--wood); border-radius: 6px; overflow: hidden; background: var(--paper); }
-.hero h1 { font: 700 clamp(2.4rem, 7vw, 3.4rem)/1.25 var(--display); margin: 0; text-wrap: balance; }
-.hero .lede { margin: 0; max-width: 34em; color: var(--ink-soft); font-size: 1.125rem; }
-.till { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 22px; }
-.buy { display: inline-grid; gap: 2px; text-decoration: none; background: var(--awning); color: var(--on-awning);
-	padding: 14px 28px 12px; border-radius: 10px; box-shadow: 0 5px 0 var(--awning-deep);
-	transition: transform .12s, box-shadow .12s; }
-:root .buy { color: var(--on-awning); }
-.buy:hover { transform: translateY(2px); box-shadow: 0 3px 0 var(--awning-deep); }
-.buy:active { transform: translateY(5px); box-shadow: 0 0 0 var(--awning-deep); }
-.buy b { font: 700 1.5rem/1.3 var(--display); }
-.buy small { font-size: .875rem; opacity: .92; }
-.alt { font-size: .95rem; color: var(--ink-soft); }
-.tag { display: inline-block; font-size: .8125rem; letter-spacing: .02em; padding: 2px 10px; border-radius: 99px;
-	border: 1px solid var(--line); color: var(--ink-soft); }
-
-section { padding-block: 44px 8px; }
-h2 { font: 700 1.6rem/1.4 var(--display); margin: 0 0 14px; text-wrap: balance; }
-.shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
-.shots figure { margin: 0; display: grid; gap: 8px; align-content: start; min-width: 0; }
-.shots .window { border-width: 3px; }
-.shots figcaption { font-size: .95rem; color: var(--ink-soft); line-height: 1.6; }
-.wide { grid-column: 1 / -1; }
-.desk { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
-.desk img { display: block; width: 100%; height: auto; }
-.trailer { display: block; width: 100%; height: auto; background: #1c1624; }
-.note { margin: 14px 0 0; max-width: 42em; color: var(--ink-soft); }
-ul.menu { list-style: none; padding: 0; margin: 18px 0 0; display: grid; gap: 6px; max-width: 40em; }
-ul.menu li { display: grid; grid-template-columns: 1.4em 1fr; }
-ul.menu li::before { content: "•"; color: var(--awning); font-weight: 700; }
-
-ol.steps { list-style: none; counter-reset: s; padding: 0; margin: 0; display: grid; gap: 14px; max-width: 42em; }
-ol.steps li { counter-increment: s; display: grid; grid-template-columns: 2.4rem 1fr; gap: 12px; align-items: start; }
-ol.steps li::before { content: counter(s); font: 700 1.1rem/2.2rem var(--display); text-align: center;
-	width: 2.2rem; height: 2.2rem; border-radius: 50%; background: var(--paper); border: 2px solid var(--wood); }
-ol.steps p { margin: 0; }
-kbd { font: 600 .9em var(--body); background: var(--paper); border: 1px solid var(--line); border-bottom-width: 3px;
-	border-radius: 5px; padding: 0 6px; white-space: nowrap; }
-
-dl.faq { margin: 0; display: grid; gap: 16px; max-width: 42em; }
-dl.faq dt { font-weight: 600; }
-dl.faq dd { margin: 2px 0 0; color: var(--ink-soft); }
-code { font-size: .85em; word-break: break-all; }
-
-footer { margin-top: 56px; border-top: 1px dashed var(--line); padding-block: 20px 36px; font-size: .9rem;
-	color: var(--ink-soft); display: flex; flex-wrap: wrap; gap: 6px 18px; }
-@media (prefers-reduced-motion: reduce) { .buy { transition: none; } }
-.lang { margin: 18px 0 -22px; text-align: right; font-size: .95rem; }
-.langnote { margin: 0; max-width: 40em; padding: 10px 14px; border-radius: 8px; background: var(--paper);
-	border: 1px dashed var(--wood); font-size: .975rem; }
-</style>
-<link rel="alternate" hreflang="th" href="https://intity01.github.io/ran-nee-lae-releases/">
-<link rel="alternate" hreflang="en" href="https://intity01.github.io/ran-nee-lae-releases/en/">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;700&amp;display=swap">
+<link rel="stylesheet" href="site.css">
 <script>
-(function () {
+(function () {   // a first visit from a non-Thai browser, or someone who picked English before, goes to the English page
 	var saved = null;
 	try { saved = localStorage.getItem("lang"); } catch (_) {}
 	var langs = navigator.languages || [navigator.language || ""];
-	var thai = langs.some(function (l) { return /^th/i.test(l); });
+	var thai = langs.some(function (l) { return /^th/i.test(l); });
 	if (saved === "en" || (!saved && !thai)) location.replace("en/" + location.hash);
 })();
 </script>
-<script>
-/* Remember a language picked by hand; a first visit from a non-Thai browser goes to the English page. */
-document.addEventListener("click", function (e) {
-	var a = e.target.closest && e.target.closest(".lang a");
-	if (a) { try { localStorage.setItem("lang", a.getAttribute("hreflang")); } catch (_) {} }
-});
-</script>
+<script src="site.js" defer></script>
 </head>
 <body>
+<a class="skip" href="#main">ข้ามไปเนื้อหา</a>
+<header class="wrap top">
+	<img src="img/logo.png" width="296" height="74" alt="ร้านนี้แหละ">
+	<nav aria-label="ส่วนของหน้า">
+		<a href="#screen">อยู่ตรงไหนของจอ</a>
+		<a href="#faq">คำถาม</a>
+		<a href="#talk">ความเห็น</a>
+		<a class="chip" href="en/" hreflang="en" lang="en">English</a>
+		<a class="btn" href="download.html"><span class="ic basket"></span>ดาวน์โหลดฟรี</a>
+	</nav>
+</header>
 
-<div class="awning" aria-hidden="true"></div>
+<main id="main">
+<section class="wrap">
+	<p class="hook">ร้านข้าวเล็กๆ ในซอยไทย ที่นั่งอยู่มุมจอคุณ ลูกค้าประจำแก่ลงทุกวัน และบางคนกลับมาหาป้าอีกครั้งตอนกลางคืน</p>
+	<p class="meta"><span data-version>รุ่นทดสอบ</span> · Windows 10/11 · 31 MB · <a href="https://github.com/intity01/ran-nee-lae-releases/releases/latest">มีอะไรใหม่</a> · <a href="https://im-shines.itch.io/ran-nee-lae">itch.io</a></p>
+</section>
 
-<main class="wrap">
-	<p class="lang"><a href="en/" hreflang="en" lang="en">English</a></p>
-	<header class="hero">
-		<div class="window"><img class="px" src="cover.png" width="1280" height="720"
-			alt="ร้านข้าวของป้าในซอยตอนพลบค่ำ มีกันสาดลายแดงขาว ศาลพระภูมิ โต๊ะ และไก่"></div>
-		<h1>ร้านนี้แหละ</h1>
-		<p class="lede">เกมร้านอาหารไทยแบบพิกเซล เปิดค้างไว้ที่ขอบจอได้ทั้งวัน ช่วยป้าเปลี่ยนที่ดินว่างในซอยเล็กๆ ให้เป็นร้านข้าวที่ทั้งซอยรัก</p>
-		<div class="till">
-			<a class="buy" id="download" href="https://github.com/intity01/ran-nee-lae-releases/releases/latest/download/RanNeeLae-Setup.exe">
-				<b>ดาวน์โหลดเกม</b>
-				<small>ตัวติดตั้ง · Windows 10/11 · 30 MB · ฟรี</small>
-			</a>
-			<div class="alt">
-				<span class="tag" id="version">รุ่น 0.1.4 · รุ่นทดสอบ</span> <a href="https://github.com/intity01/ran-nee-lae-releases/releases/latest">มีอะไรใหม่</a><br>
-				ไม่อยากติดตั้ง? <a href="https://github.com/intity01/ran-nee-lae-releases/releases/latest/download/RanNeeLae.zip">โหลดแบบ zip</a> (40 MB)<br>
-				มีบน <a href="https://im-shines.itch.io/ran-nee-lae">itch.io</a> ด้วย
-			</div>
-		</div>
-	</header>
+<section class="day" aria-label="เช้า">
+	<div class="wrap"><span class="chip clock"><span class="ic sun"></span>07:30</span></div>
+	<div class="strip"><img src="img/strip-morning.png" width="960" height="372" alt="ร้านของป้าตอนเช้าหน้าหนาว แดดส่องเฉียงเข้าร้าน"></div>
+	<p class="wrap caption">เริ่มจากลานว่างในซอย เก็บของ ขายของ แล้วสร้างรถเข็น แผงลอย จนเป็นร้าน</p>
+</section>
 
-	<section aria-labelledby="watch">
-		<h2 id="watch">ดูตัวอย่าง</h2>
-		<div class="window"><video class="trailer" src="media/trailer.mp4" poster="cover.png" width="1280" height="800"
-			controls muted playsinline preload="metadata">ตัวอย่างเกม 32 วินาที</video></div>
-	</section>
-
-	<section aria-labelledby="where">
-		<h2 id="where">อยู่ตรงไหนของจอ</h2>
-		<div class="shots desk">
-			<figure>
-				<div class="window"><img src="shots/desktop-quiet.png" width="820" height="479"
-					alt="ร้านของป้าวางอยู่มุมล่างของหน้าจอ Windows เหนือ taskbar ไม่มีกรอบหน้าต่าง เห็นพื้นหลังจอรอบๆ"></div>
-				<figcaption>ปล่อยไว้เฉยๆ ก็เหลือแค่ร้าน ไม่มีกรอบ ไม่มีพื้นหลัง และอยู่บนสุดเสมอ เปิดงานอื่นทับก็ยังเห็น</figcaption>
-			</figure>
-			<figure>
-				<div class="window"><img src="shots/desktop-ui.png" width="820" height="479"
-					alt="ร้านเดียวกันตอนเอาเมาส์ไปใกล้ มีแถบเงิน หัวใจ ผัก และปุ่มแต่ง ออกไป สมุด สร้าง ขึ้นมา"></div>
-				<figcaption>เอาเมาส์ไปใกล้ แถบเมนูก็ขึ้นมาให้กด</figcaption>
-			</figure>
-		</div>
-		<p class="note">เปิดครั้งแรกร้านจะอยู่มุมขวาล่าง ชิดเหนือ taskbar จะย้ายก็ลากที่ตัวป้า หรือลากปุ่มลูกศรสี่ทางที่มุมซ้ายล่าง เกมจำที่ไว้ให้ ที่ว่างรอบร้านคลิกทะลุไปโปรแกรมข้างหลังได้ ถ้าอยากได้ร้านใหญ่ขึ้น ตั้งได้ถึง 4 เท่าในหน้าตั้งค่า</p>
-	</section>
-
-	<section aria-labelledby="inside">
-		<h2 id="inside">ในร้านมีอะไร</h2>
-		<div class="shots">
-			<figure class="wide">
-				<div class="window"><img class="px" src="shots/day.png" width="640" height="256"
-					alt="ร้านตอนกลางวัน มีแปลงผัก ป้ายืนหน้าเตา โต๊ะลูกค้า และเล้าไก่"></div>
-				<figcaption>ร้านเป็นแถบยาวที่วางไว้ขอบจอ ทำงานไปด้วยก็ได้ ลูกค้าเดินเข้ามาเอง ป้าทำกับข้าวเอง</figcaption>
-			</figure>
-			<figure>
-				<div class="window"><img class="px" src="shots/cook.png" width="640" height="400"
-					alt="มุมมองมือของป้าหน้ากระทะ เลือกได้ว่าจะลงมือเองหรือให้ป้าทำ"></div>
-				<figcaption>อยากทำเองก็จับตะหลิวผ่านมือป้า ทำดีได้ราคาดี ไม่ว่างก็ให้ป้าทำ</figcaption>
-			</figure>
-			<figure>
-				<div class="window"><img class="px" src="shots/night.png" width="640" height="256"
-					alt="ร้านตอนกลางคืน โคมไฟเปิด ป้ายไฟนีออนสว่าง"></div>
-				<figcaption>เวลาในเกมตรงกับนาฬิกาจริง กลางคืนไฟร้านเปิด บางคืนก็มีผีไทยแวะมา</figcaption>
-			</figure>
-		</div>
-		<ul class="menu">
-			<li>เริ่มจากที่ดินเปล่า เก็บของไปขาย สร้างเป็นรถเข็น แผงลอย จนเป็นร้าน</li>
-			<li>ปลูกผักบุ้ง กะเพรา พริก ตะไคร้ เลี้ยงไก่ไว้เอาไข่</li>
-			<li>ขาประจำห้าคนมีชีวิตเดินไปตามวันจริง แก่ลง เปลี่ยนงาน มีเรื่องมาเล่าให้ป้าฟัง</li>
-			<li>ฝน หมอก และลมหนาวเปลี่ยนไปตามฤดูของไทย มีลอยกระทงตามปฏิทินจริง</li>
-			<li>กดตัวเลขผักบนแถบบนเพื่อดูของทั้งหมดในคลัง สมุดของป้านับวันของร้านไว้ให้</li>
-			<li>เมนูและปุ่มเลือกได้ทั้งไทยและอังกฤษ ส่วนเนื้อเรื่องยังเป็นภาษาไทย</li>
+<section id="screen" class="screen">
+	<div class="wrap">
+		<h2>อยู่ตรงไหนของจอ</h2>
+		<p>ปล่อยไว้เฉยๆ ก็มีแค่ร้าน ไม่มีกรอบ ไม่มีพื้นหลัง อยู่บนสุดเสมอ เอาเมาส์ไปใกล้ แถบเมนูจะโผล่มา</p>
+		<div class="panel" style="margin-top:18px"><img class="photo" src="img/desktop.png" width="820" height="479" alt="ร้านวางอยู่ล่างจอ ข้างหน้าต่างโปรแกรมอื่น"></div>
+		<ul class="points">
+			<li>เปิดครั้งแรกร้านอยู่มุมขวาล่าง เหนือแถบงานพอดี</li>
+			<li>ย้ายร้าน: ลากป้า หรือปุ่มลูกศรสี่ทางมุมซ้ายล่าง เกมจำตำแหน่งให้</li>
+			<li>คลิกที่ว่างรอบร้านทะลุไปถึงโปรแกรมข้างหลัง</li>
+			<li>อยากได้ใหญ่ขึ้น ตั้งได้ถึง 4 เท่าในตั้งค่า</li>
 		</ul>
-	</section>
+	</div>
+</section>
 
-	<section aria-labelledby="install">
-		<h2 id="install">ติดตั้งยังไง</h2>
-		<ol class="steps">
-			<li><p>กดปุ่ม <b>ดาวน์โหลดเกม</b> ด้านบน แล้วเปิดไฟล์ <code>RanNeeLae-Setup.exe</code> ที่ได้มา</p></li>
-			<li><p>ถ้า Windows ขึ้นว่า "Windows protected your PC" ให้กด <kbd>More info</kbd> แล้วกด <kbd>Run anyway</kbd>
-				เกมนี้ไม่มีลายเซ็นดิจิทัลแบบเสียเงินรายปี Windows จึงเตือนแค่ครั้งแรก</p></li>
-			<li><p>กดติดตั้งไปจนจบ แล้วเปิดเกมจากไอคอนไก่ในเมนู Start ไม่ต้องใช้สิทธิ์ผู้ดูแลเครื่อง</p></li>
+<section class="wrap pair" aria-label="ทำกับข้าว">
+	<div class="words"><span class="chip clock"><span class="ic sun"></span>11:00</span>
+		<p>ทำกับข้าวเองผ่านมือป้า ทอดไข่ ผัดกะเพรา โยนกระทะ ทำดีขายได้แพงขึ้น ยุ่งอยู่ก็ปล่อยให้ป้าทำเอง</p></div>
+	<div class="panel"><img src="img/panel-cook.png" width="640" height="400" alt="มือป้ากำลังผัดกะเพราในกระทะ"></div>
+</section>
+
+<section class="wrap pair flip" aria-label="สวนหลังร้าน" style="padding-top:0">
+	<div class="panel"><img src="img/panel-garden.png" width="640" height="400" alt="สวนหลังร้าน แปลงผักและเล้าไก่"></div>
+	<div class="words"><span class="chip clock"><span class="ic sun"></span>13:00</span>
+		<p>ปลูกผักบุ้ง กะเพรา พริก ตะไคร้ เลี้ยงไก่เก็บไข่ ฟักลูกเจี๊ยบแล้วตั้งชื่อเอง</p></div>
+</section>
+
+<section class="day rainy" aria-label="ฝน">
+	<div class="wrap"><span class="chip clock"><span class="ic sun"></span>15:30</span></div>
+	<div class="strip"><img src="img/strip-rain.png" width="960" height="384" alt="ฝนตกหนักหน้าร้าน"></div>
+	<p class="wrap caption">ฝน หมอกเช้า ลมหนาว ตามฤดูไทยจริง ทุกคนเห็นฝนห่าเดียวกันในวันเดียวกัน ลอยกระทงมาตามปฏิทินจริง</p>
+</section>
+
+<section class="day dusky" aria-label="ขาประจำ">
+	<div class="wrap"><span class="chip clock"><span class="ic sun"></span>18:20</span></div>
+	<div class="strip"><img src="img/strip-dusk.png" width="960" height="372" alt="ร้านตอนเย็น ไฟเริ่มติด"></div>
+	<div class="wrap">
+		<p class="caption">ขาประจำห้าคนมีชีวิตตามวันจริง หนึ่งวันคือหนึ่งปีของเขา แก่ขึ้น เปลี่ยนงาน แล้วมาเล่าให้ป้าฟัง</p>
+		<div class="cast">
+			<button type="button" aria-pressed="true" data-name="ลุงเฉลิม" data-line="สมัยหนุ่มลุงกินร้านสมศรีทุกเย็น"><img src="img/folk-chalerm-b.png" alt="ลุงเฉลิม"></button>
+			<button type="button" aria-pressed="false" data-name="พี่ก้อง" data-line="ผัดผักบุ้งไฟแดง ข้าวสองจานนะป้า"><img src="img/folk-kong-a.png" alt="พี่ก้อง"></button>
+			<button type="button" aria-pressed="false" data-name="น้องเมย์" data-line="หนูยังเลือกไม่ได้เลยว่าจะเรียนต่อไหม"><img src="img/folk-may-a.png" alt="น้องเมย์"></button>
+			<button type="button" aria-pressed="false" data-name="เจ๊หลิน" data-line="รู้ยัง ซอยข้างๆ เขาจะขายที่กันแล้ว"><img src="img/folk-lin-a.png" alt="เจ๊หลิน"></button>
+			<button type="button" aria-pressed="false" data-name="ต้นกล้า" data-line="ป้าครับ ผมขอตอกไข่เอง"><img src="img/folk-tonkla-a.png" alt="ต้นกล้า"></button>
+		</div>
+		<p id="said" class="chip said" aria-live="polite">ลุงเฉลิม: สมัยหนุ่มลุงกินร้านสมศรีทุกเย็น</p>
+	</div>
+</section>
+
+<section class="wrap" style="padding:44px 20px" aria-labelledby="watch">
+	<h2 id="watch">ตัวอย่าง</h2>
+	<video src="media/trailer.mp4" poster="cover.png" controls muted playsinline preload="metadata">ตัวอย่างเกม 32 วินาที</video>
+	<ul class="points">
+		<li>เวลาในเกมตามนาฬิกาเครื่องคุณ</li>
+		<li>ปิดเกมไป ร้านยังเดินต่อ กลับมาป้าเล่าให้ฟังว่าเกิดอะไรขึ้น</li>
+		<li>กดตัวเลขผักบนแถบเพื่อดูคลังของ สมุดป้านับวันของร้าน</li>
+		<li>ไม่มีโฆษณา ไม่มีเติมเงิน</li>
+	</ul>
+</section>
+
+<section class="day night" aria-label="กลางคืน">
+	<div class="wrap"><span class="chip clock"><span class="ic moon"></span>21:00</span></div>
+	<div class="strip"><img src="img/strip-night.png" width="960" height="372" alt="ร้านตอนกลางคืน โคมไฟติด"></div>
+	<div class="wrap pair" style="padding-bottom:0">
+		<div class="panel"><img src="img/panel-ghost.png" width="640" height="412" alt="แม่นาคยืนถือตะเกียงหลังร้าน"></div>
+		<p class="words">กลางคืนไฟติด บางคืนผีไทยแวะมา คืนละครั้ง ถ้าคุณคลิกเอง ไม่มีอะไรกระโดดใส่ ไม่อยากเจอก็เปิดโหมดกันรำคาญ</p>
+	</div>
+	<div class="wrap install">
+		<div class="row">
+			<a class="btn" href="download.html"><span class="ic basket"></span>ดาวน์โหลดฟรี</a>
+			<span class="soft"><span data-version>รุ่นทดสอบ</span> · ไม่อยากติดตั้ง? <a href="https://github.com/intity01/ran-nee-lae-releases/releases/latest/download/RanNeeLae.zip">โหลดแบบ zip</a></span>
+		</div>
+		<ol>
+			<li>กดดาวน์โหลด แล้วเปิดไฟล์ RanNeeLae-Setup.exe</li>
+			<li>ถ้า Windows ขึ้นว่า “Windows ป้องกันพีซีของคุณ” กด “ข้อมูลเพิ่มเติม” แล้ว “เรียกใช้ต่อไป” เกมไม่มีใบรับรองรายปีแบบเสียเงิน Windows จึงเตือนครั้งแรก</li>
+			<li>ติดตั้งจนจบ แล้วเปิดเกมจากไอคอนไก่ในเมนูเริ่ม ไม่ต้องใช้สิทธิ์แอดมิน</li>
 		</ol>
-	</section>
+	</div>
+</section>
 
-	<section aria-labelledby="faq">
-		<h2 id="faq">ถามบ่อย</h2>
-		<dl class="faq">
-			<div><dt>อัปเดตยังไง</dt>
-				<dd>ไม่ต้องโหลดใหม่ทั้งเกม ตอนเปิดเกมจะเช็กให้ ถ้ามีรุ่นใหม่จะขึ้นปุ่ม "โหลดอัปเดต" ใต้แถบบน กดแล้วเปิดเกมใหม่ ไฟล์เล็กและเกมตรวจลายเซ็นก่อนใช้ทุกครั้ง ปิดการเช็กได้ในหน้าตั้งค่า ส่วนตัวติดตั้งบนหน้านี้เป็นรุ่นล่าสุดเสมอ</dd></div>
-			<div><dt>เกมใช้เน็ตทำอะไร</dt>
-				<dd>แค่เช็กอัปเดตตอนเปิดเกม เซฟอยู่ในเครื่องของคุณ ไม่มีการส่งข้อมูลอื่นออกไป</dd></div>
-			<div><dt>ลบเกมแล้วเซฟหายไหม</dt>
-				<dd>ถอนเกมได้ที่ Settings &gt; Apps &gt; ร้านนี้แหละ ตัวถอนจะถามก่อนว่าจะลบเซฟด้วยไหม ถ้าไม่ลบ ติดตั้งใหม่ก็เล่นต่อจากเดิมได้</dd></div>
-			<div><dt>จะรู้ได้ยังไงว่าไฟล์ไม่ถูกแก้</dt>
-				<dd>เทียบค่า SHA-256 ของไฟล์กับ <a href="https://github.com/intity01/ran-nee-lae-releases/releases/latest/download/SHA256SUMS.txt">SHA256SUMS.txt</a> ที่อยู่ในหน้ารีลีส</dd></div>
-			<div><dt>เจอปัญหา หรืออยากบอกอะไร</dt>
-				<dd>เปิดเรื่องไว้ที่ <a href="https://github.com/intity01/ran-nee-lae-releases/issues">หน้า Issues</a> ได้เลย เกมยังเป็นรุ่นทดสอบ ทุกความเห็นช่วยได้มาก</dd></div>
-		</dl>
-	</section>
+<section id="faq" class="wrap" style="padding-top:44px">
+	<h2>คำถามที่พบบ่อย</h2>
+	<details><summary>อัปเดตยังไง</summary><p>ไม่ต้องโหลดใหม่ทั้งเกม เปิดเกมแล้วถ้ามีรุ่นใหม่ ปุ่ม “โหลดอัปเดต” จะขึ้นใต้แถบบน อัปเดตเล็กและมีลายเซ็น เกมตรวจลายเซ็นทุกครั้ง กดแล้วเปิดเกมใหม่ ปิดการเช็กได้ในตั้งค่า ตัวติดตั้งในหน้านี้เป็นรุ่นล่าสุดเสมอ</p></details>
+	<details><summary>เกมใช้อินเทอร์เน็ตทำอะไร</summary><p>เช็กอัปเดตตอนเปิดเกมอย่างเดียว เซฟอยู่ในเครื่องคุณ ไม่ส่งอะไรออกไป</p></details>
+	<details><summary>ถอนการติดตั้งแล้วเซฟหายไหม</summary><p>ถอนที่ การตั้งค่า › แอป › ร้านนี้แหละ ตัวถอนจะถามก่อนว่าจะลบเซฟไหม เก็บไว้ ติดตั้งใหม่ก็เล่นต่อได้</p></details>
+	<details><summary>รู้ได้ไงว่าไฟล์ไม่ถูกแก้</summary><p>เทียบ SHA-256 ของไฟล์กับ SHA256SUMS.txt ใน<a href="https://github.com/intity01/ran-nee-lae-releases/releases">หน้ารุ่นทั้งหมด</a></p></details>
+	<details><summary>เจอปัญหา หรืออยากบอกอะไร</summary><p>เขียนในความเห็นข้างล่างได้เลย หรือเปิด <a href="https://github.com/intity01/ran-nee-lae-releases/issues">Issue บน GitHub</a> ภาษาไทยหรืออังกฤษก็ได้ เกมยังเป็นรุ่นทดสอบ ทุกความเห็นช่วยได้มาก</p></details>
+</section>
 
-	<footer>
-		<span>เล่นฟรี ถ่ายคลิปหรือสตรีมได้ ห้ามขายหรือแจกไฟล์จากที่อื่น (<a href="https://github.com/intity01/ran-nee-lae-releases/blob/main/LICENSE.txt">สัญญาอนุญาต</a>)</span>
-		<span><a href="https://github.com/intity01/ran-nee-lae-releases/releases">รุ่นทั้งหมด</a></span>
-		<span><a href="https://im-shines.itch.io/ran-nee-lae">ร้านนี้แหละบน itch.io</a></span>
-		<span>สร้างด้วย <a href="https://godotengine.org">Godot Engine</a></span>
-	</footer>
+<section id="talk" class="wrap talk" style="padding-top:36px;padding-bottom:48px">
+	<h2>คุยกันหน่อย</h2>
+	<p class="meta">พิมพ์แล้วขึ้นตรงนี้เลย ไม่ต้องสมัครอะไร ใส่ลิงก์ไม่ได้</p>
+	<form id="comment-form" class="box">
+		<label for="c-name">ชื่อ (ไม่ใส่ก็ได้)</label>
+		<input id="c-name" name="name" maxlength="30" autocomplete="nickname">
+		<label for="c-body">ข้อความ</label>
+		<textarea id="c-body" name="body" rows="3" maxlength="500" required></textarea>
+		<button type="submit" class="btn" style="align-self:flex-start">ส่ง</button>
+		<p id="comment-status" class="status" aria-live="polite"></p>
+	</form>
+	<ol id="comments" aria-label="ความเห็น"><li>กำลังโหลด…</li></ol>
+</section>
 </main>
-<script>
-// The version line follows the newest release by itself (the download buttons already do: releases/latest/download/).
-// The text written in the page stays if GitHub does not answer.
-fetch("https://api.github.com/repos/intity01/ran-nee-lae-releases/releases/latest")
-	.then(r => r.ok ? r.json() : Promise.reject(r.status))
-	.then(release => {
-		const version = release.tag_name.replace(/^v/, "");
-		const date = new Date(release.published_at).toLocaleDateString("th-TH", {day: "numeric", month: "short", year: "numeric"});
-		document.getElementById("version").textContent = "รุ่น " + version + " · รุ่นทดสอบ · " + date;
-	})
-	.catch(() => {});
-</script>
+
+<footer>
+	เล่น ถ่าย สตรีมได้ฟรี ห้ามขายหรือแจกไฟล์ที่อื่น (<a href="LICENSE.txt">ข้อตกลง</a>) ·
+	<a href="https://github.com/intity01/ran-nee-lae-releases/releases">รุ่นทั้งหมด</a> ·
+	<a href="https://im-shines.itch.io/ran-nee-lae">itch.io</a> · สร้างด้วย Godot Engine
+</footer>
 </body>
 </html>

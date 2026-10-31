@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ดาวน์โหลด ร้านนี้แหละ</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="icon.png">
+<link rel="alternate" hreflang="en" href="en/download.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;700&amp;display=swap">
+<link rel="stylesheet" href="site.css">
+<script src="site.js" defer></script>
+</head>
+<body>
+<header class="wrap top">
+	<a href="./"><img src="img/logo.png" width="148" height="37" alt="ร้านนี้แหละ หน้าแรก"></a>
+	<nav aria-label="หน้า">
+		<a href="./">กลับไปดูเกม</a>
+		<a class="chip" href="en/download.html" hreflang="en" lang="en">English</a>
+	</nav>
+</header>
+
+<main>
+<section class="wrap fetch">
+	<div class="aunt">
+		<p id="countdown" class="bubble" aria-live="polite">กำลังเริ่มโหลด</p>
+		<img src="img/aunt.png" width="144" height="208" alt="ป้า">
+	</div>
+	<div class="words">
+		<p>ไฟล์จะเริ่มโหลดเอง ระหว่างนี้อ่านวิธีติดตั้งข้างล่างได้เลย</p>
+		<div class="install row" style="margin-top:16px">
+			<a class="btn" href="https://github.com/intity01/ran-nee-lae-releases/releases/latest/download/RanNeeLae-Setup.exe"><span class="ic basket"></span>ถ้าไม่เริ่ม กดตรงนี้</a>
+			<a href="https://github.com/intity01/ran-nee-lae-releases/releases/latest/download/RanNeeLae.zip">แบบ zip ไม่ต้องติดตั้ง</a>
+		</div>
+		<p class="meta"><span data-version>รุ่นทดสอบ</span> · Windows 10/11 · 31 MB · <a href="https://github.com/intity01/ran-nee-lae-releases/releases/latest">SHA-256</a></p>
+	</div>
+</section>
+
+<section class="wrap" aria-label="วิธีติดตั้ง">
+	<ol class="steps">
+		<li class="box"><b>1</b> เปิด RanNeeLae-Setup.exe ไม่ต้องใช้สิทธิ์แอดมิน</li>
+		<li class="box"><b>2</b> ถ้าหน้าจอสีฟ้าขึ้น กด “ข้อมูลเพิ่มเติม” แล้ว “เรียกใช้ต่อไป” เกมยังไม่มีใบรับรอง ไม่ใช่ไวรัส</li>
+		<li class="box"><b>3</b> ร้านขึ้นที่มุมขวาล่าง ลากป้าเพื่อย้าย ปิดเกมแล้วร้านยังเดินต่อ</li>
+	</ol>
+</section>
+
+<section id="talk" class="wrap talk" style="padding-top:36px;padding-bottom:48px">
+	<h2>เล่นแล้วเป็นยังไง บอกกันหน่อย</h2>
+	<p class="meta">พิมพ์แล้วขึ้นตรงนี้เลย ไม่ต้องสมัครอะไร ใส่ลิงก์ไม่ได้</p>
+	<form id="comment-form" class="box">
+		<label for="c-name">ชื่อ (ไม่ใส่ก็ได้)</label>
+		<input id="c-name" name="name" maxlength="30" autocomplete="nickname">
+		<label for="c-body">ข้อความ</label>
+		<textarea id="c-body" name="body" rows="3" maxlength="500" required></textarea>
+		<button type="submit" class="btn" style="align-self:flex-start">ส่ง</button>
+		<p id="comment-status" class="status" aria-live="polite"></p>
+	</form>
+	<ol id="comments" aria-label="ความเห็น"><li>กำลังโหลด…</li></ol>
+</section>
+</main>
+
+<footer>
+	เล่น ถ่าย สตรีมได้ฟรี ห้ามขายหรือแจกไฟล์ที่อื่น (<a href="LICENSE.txt">ข้อตกลง</a>) · <a href="https://im-shines.itch.io/ran-nee-lae">itch.io</a>
+</footer>
+</body>
+</html>
